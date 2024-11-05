@@ -29,7 +29,7 @@ export PATH=$PATH:$GOPATH/bin
 
 # Alətlərin siyahısını göstərin
 declare -A tools
-tools=( ["1"]="katana" ["2"]="nuclei" ["3"]="subfinder" ["4"]="gau" ["5"]="urldedupe" ["6"]="waybackurls" ["7"]="gf" ["8"]="sqlmap" ["9"]="dalfox" ["10"]="gobuster" ["11"]="wpscan" ["12"]="amass" ["13"]="nmap" ["14"]="zaproxy" ["15"]="Hamısı" )
+tools=( ["1"]="katana" ["2"]="nuclei" ["3"]="subfinder" ["4"]="gau" ["5"]="waybackurls" ["6"]="gf" ["7"]="sqlmap" ["8"]="dalfox" ["9"]="gobuster" ["10"]="amass" ["11"]="nmap" ["12"]="zaproxy" ["13"]="Hamısı" )
 
 echo -e "${RED}Yüklənəcək alətlər siyahısı:${NC}"
 for key in "${!tools[@]}"; do
@@ -37,7 +37,7 @@ for key in "${!tools[@]}"; do
 done
 
 # İstifadəçidən alət seçimi alınır
-read -p "Endirmək istədiyiniz alətin nömrəsini daxil edin (1-15): " tool_choice
+read -p "Endirmək istədiyiniz alətin nömrəsini daxil edin (1-13): " tool_choice
 
 # Alətlərin yüklənməsi
 install_tool() {
@@ -63,19 +63,6 @@ install_tool() {
       gau)
         go install github.com/lc/gau/v2/cmd/gau@latest
         ;;
-      urldedupe)
-        echo -e "${RED}urldedupe yüklənir...${NC}"
-        git clone https://github.com/ameenmaali/urldedupe.git $TOOLS_DIR/urldedupe
-        cd $TOOLS_DIR/urldedupe || { echo -e "${RED}Qovluğa keçmək mümkün olmadı.${NC}"; return; }
-        if ! command -v cmake > /dev/null; then
-          echo -e "${RED}cmake yüklənmir. Yüklənir...${NC}"
-          sudo apt install cmake -y
-        fi
-        cmake CMakeLists.txt || { echo -e "${RED}cmake icra edilmədi.${NC}"; return; }
-        make || { echo -e "${RED}make icra edilmədi.${NC}"; return; }
-        sudo make install || { echo -e "${RED}urldedupe quraşdırılması baş tutmadı.${NC}"; return; }
-        echo -e "${GREEN}urldedupe uğurla quraşdırıldı.${NC}"
-        ;;
       waybackurls)
         go install github.com/tomnomnom/waybackurls@latest
         ;;
@@ -93,10 +80,6 @@ install_tool() {
         ;;
       gobuster)
         go install github.com/OJ/gobuster/v3@latest
-        ;;
-      wpscan)
-        sudo apt-get install ruby ruby-dev -y
-        sudo gem install wpscan -y
         ;;
       amass)
         go install github.com/OWASP/Amass/v3/...@master
@@ -123,17 +106,15 @@ case $tool_choice in
   2) install_tool "nuclei" ;;
   3) install_tool "subfinder" ;;
   4) install_tool "gau" ;;
-  5) install_tool "urldedupe" ;;
-  6) install_tool "waybackurls" ;;
-  7) install_tool "gf" ;;
-  8) install_tool "sqlmap" ;;
-  9) install_tool "dalfox" ;;
-  10) install_tool "gobuster" ;;
-  11) install_tool "wpscan" ;;
-  12) install_tool "amass" ;;
-  13) install_tool "nmap" ;;
-  14) install_tool "zaproxy" ;;
-  15)
+  5) install_tool "waybackurls" ;;
+  6) install_tool "gf" ;;
+  7) install_tool "sqlmap" ;;
+  8) install_tool "dalfox" ;;
+  9) install_tool "gobuster" ;;
+  10) install_tool "amass" ;;
+  11) install_tool "nmap" ;;
+  12) install_tool "zaproxy" ;;
+  13)
     for tool in "${tools[@]}"; do
       install_tool "$tool"
     done
