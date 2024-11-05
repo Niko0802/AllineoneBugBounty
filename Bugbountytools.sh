@@ -62,11 +62,8 @@ install_katana() {
     echo -e "${GREEN}Katana artıq yüklüdür.${NC}"
   else
     echo -e "${RED}Katana yüklənir...${NC}"
-    cd $TOOLS_DIR
-    git clone https://github.com/projectdiscovery/katana.git
-    cd katana/cmd/katana
-    go build
-    sudo cp katana /usr/local/bin/
+    go install github.com/projectdiscovery/katana/cmd/katana@latest
+    sudo cp $GOPATH/bin/katana /usr/local/bin/
     echo -e "${GREEN}Katana quraşdırıldı.${NC}"
   fi
 }
@@ -76,11 +73,8 @@ install_nuclei() {
     echo -e "${GREEN}Nuclei artıq yüklüdür.${NC}"
   else
     echo -e "${RED}Nuclei yüklənir...${NC}"
-    cd $TOOLS_DIR
-    git clone https://github.com/projectdiscovery/nuclei.git
-    cd nuclei/v2/cmd/nuclei
-    go build
-    sudo cp nuclei /usr/local/bin/
+    go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
+    sudo cp $GOPATH/bin/nuclei /usr/local/bin/
     echo -e "${GREEN}Nuclei quraşdırıldı.${NC}"
   fi
 }
@@ -232,7 +226,7 @@ install_nmap() {
     echo -e "${GREEN}Nmap artıq yüklüdür.${NC}"
   else
     echo -e "${RED}Nmap yüklənir...${NC}"
-    sudo apt-get install nmap -y
+    sudo snap install nmap
     echo -e "${GREEN}Nmap quraşdırıldı.${NC}"
   fi
 }
@@ -246,8 +240,19 @@ install_loxs() {
     git clone https://github.com/coffinxp/loxs.git
     cd loxs
     echo -e "${GREEN}Loxs yükləndi. Quraşdırma tamamlanır...${NC}"
+    echo -e "${RED}Quraşdırılır...${NC}"
     pip3 install -r requirements.txt
     echo -e "${GREEN}Loxs quraşdırıldı.${NC}"
+  fi
+}
+
+install_zaproxy() {
+  if command -v zaproxy > /dev/null; then
+    echo -e "${GREEN}ZAP artıq yüklüdür.${NC}"
+  else
+    echo -e "${RED}ZAP yüklənir...${NC}"
+    sudo snap install zaproxy
+    echo -e "${GREEN}ZAP quraşdırıldı.${NC}"
   fi
 }
 
