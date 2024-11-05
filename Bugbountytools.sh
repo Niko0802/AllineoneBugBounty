@@ -9,13 +9,22 @@ NC='\e[0m' # Normal rəng
 TOOLS_DIR="$HOME/tools"
 mkdir -p $TOOLS_DIR
 
+# Snap varsa Go yükləmək
+install_go() {
+  if ! [ -x "$(command -v snap)" ]; then
+    echo -e "${RED}Snap yüklənməmişdir, yüklənir...${NC}"
+    sudo apt update
+    sudo apt install snapd -y
+  fi
+
+  echo -e "${RED}Go yüklənir...${NC}"
+  sudo snap install go --classic
+  echo -e "${GREEN}Go uğurla yükləndi.${NC}"
+}
+
 # Go dili yüklənməyibsə, Go yükləyin
 if ! [ -x "$(command -v go)" ]; then
-  echo -e "${RED}Go yüklənməmişdir. Yüklənir...${NC}"
-  wget https://go.dev/dl/go1.21.1.linux-amd64.tar.gz
-  sudo tar -C /usr/local -xzf go1.21.1.linux-amd64.tar.gz
-  export PATH=$PATH:/usr/local/go/bin
-  echo -e "${GREEN}Go uğurla yükləndi.${NC}"
+  install_go
 else
   echo -e "${GREEN}Go artıq mövcuddur.${NC}"
 fi
@@ -40,144 +49,206 @@ echo -e "${RED}11. Hydra${NC}"
 echo -e "${RED}12. Hashcat${NC}"
 echo -e "${RED}13. WPScan${NC}"
 echo -e "${RED}14. Amass${NC}"
-echo -e "${RED}15. ZAP (OWASP ZAP Proxy)${NC}"
-echo -e "${RED}16. Nmap${NC}"
-echo -e "${RED}17. Loxs${NC}"
+echo -e "${RED}15. Nmap${NC}"
+echo -e "${RED}16. Loxs${NC}"
+echo -e "${RED}17. ZAP (OWASP ZAP Proxy)${NC}"
 echo -e "${RED}18. Hamısı (Bütün alətlər)${NC}"
 
 read -p "Endirmək istədiyiniz alətin nömrəsini daxil edin: " tool_choice
 
 # Alətlərin yükləmə funksiyaları
 install_katana() {
-  echo -e "${RED}Katana yüklənir...${NC}"
-  cd $TOOLS_DIR
-  git clone https://github.com/projectdiscovery/katana.git
-  cd katana/cmd/katana
-  go build
-  sudo cp katana /usr/local/bin/
-  echo -e "${GREEN}Katana quraşdırıldı.${NC}"
+  if command -v katana > /dev/null; then
+    echo -e "${GREEN}Katana artıq yüklüdür.${NC}"
+  else
+    echo -e "${RED}Katana yüklənir...${NC}"
+    cd $TOOLS_DIR
+    git clone https://github.com/projectdiscovery/katana.git
+    cd katana/cmd/katana
+    go build
+    sudo cp katana /usr/local/bin/
+    echo -e "${GREEN}Katana quraşdırıldı.${NC}"
+  fi
 }
 
 install_nuclei() {
-  echo -e "${RED}Nuclei yüklənir...${NC}"
-  cd $TOOLS_DIR
-  git clone https://github.com/projectdiscovery/nuclei.git
-  cd nuclei/v2/cmd/nuclei
-  go build
-  sudo cp nuclei /usr/local/bin/
-  echo -e "${GREEN}Nuclei quraşdırıldı.${NC}"
+  if command -v nuclei > /dev/null; then
+    echo -e "${GREEN}Nuclei artıq yüklüdür.${NC}"
+  else
+    echo -e "${RED}Nuclei yüklənir...${NC}"
+    cd $TOOLS_DIR
+    git clone https://github.com/projectdiscovery/nuclei.git
+    cd nuclei/v2/cmd/nuclei
+    go build
+    sudo cp nuclei /usr/local/bin/
+    echo -e "${GREEN}Nuclei quraşdırıldı.${NC}"
+  fi
 }
 
 install_subfinder() {
-  echo -e "${RED}Subfinder yüklənir...${NC}"
-  cd $TOOLS_DIR
-  git clone https://github.com/projectdiscovery/subfinder.git
-  cd subfinder/v2/cmd/subfinder
-  go build
-  sudo cp subfinder /usr/local/bin/
-  echo -e "${GREEN}Subfinder quraşdırıldı.${NC}"
+  if command -v subfinder > /dev/null; then
+    echo -e "${GREEN}Subfinder artıq yüklüdür.${NC}"
+  else
+    echo -e "${RED}Subfinder yüklənir...${NC}"
+    cd $TOOLS_DIR
+    git clone https://github.com/projectdiscovery/subfinder.git
+    cd subfinder/v2/cmd/subfinder
+    go build
+    sudo cp subfinder /usr/local/bin/
+    echo -e "${GREEN}Subfinder quraşdırıldı.${NC}"
+  fi
 }
 
 install_gau() {
-  echo -e "${RED}gau yüklənir...${NC}"
-  cd $TOOLS_DIR
-  go install github.com/lc/gau/v2/cmd/gau@latest
-  sudo cp $GOPATH/bin/gau /usr/local/bin/
-  echo -e "${GREEN}gau quraşdırıldı.${NC}"
+  if command -v gau > /dev/null; then
+    echo -e "${GREEN}gau artıq yüklüdür.${NC}"
+  else
+    echo -e "${RED}gau yüklənir...${NC}"
+    cd $TOOLS_DIR
+    go install github.com/lc/gau/v2/cmd/gau@latest
+    sudo cp $GOPATH/bin/gau /usr/local/bin/
+    echo -e "${GREEN}gau quraşdırıldı.${NC}"
+  fi
 }
 
 install_urldedupe() {
-  echo -e "${RED}urldedupe yüklənir...${NC}"
-  cd $TOOLS_DIR
-  go install github.com/lc/urldedupe/cmd/urldedupe@latest
-  sudo cp $GOPATH/bin/urldedupe /usr/local/bin/
-  echo -e "${GREEN}urldedupe quraşdırıldı.${NC}"
+  if command -v urldedupe > /dev/null; then
+    echo -e "${GREEN}urldedupe artıq yüklüdür.${NC}"
+  else
+    echo -e "${RED}urldedupe yüklənir...${NC}"
+    cd $TOOLS_DIR
+    go install github.com/lc/urldedupe/cmd/urldedupe@latest
+    sudo cp $GOPATH/bin/urldedupe /usr/local/bin/
+    echo -e "${GREEN}urldedupe quraşdırıldı.${NC}"
+  fi
 }
 
 install_waybackurls() {
-  echo -e "${RED}waybackurls yüklənir...${NC}"
-  cd $TOOLS_DIR
-  go install github.com/tomnomnom/waybackurls@latest
-  sudo cp $GOPATH/bin/waybackurls /usr/local/bin/
-  echo -e "${GREEN}waybackurls quraşdırıldı.${NC}"
+  if command -v waybackurls > /dev/null; then
+    echo -e "${GREEN}waybackurls artıq yüklüdür.${NC}"
+  else
+    echo -e "${RED}waybackurls yüklənir...${NC}"
+    cd $TOOLS_DIR
+    go install github.com/tomnomnom/waybackurls@latest
+    sudo cp $GOPATH/bin/waybackurls /usr/local/bin/
+    echo -e "${GREEN}waybackurls quraşdırıldı.${NC}"
+  fi
 }
 
 install_gf() {
-  echo -e "${RED}gf yüklənir...${NC}"
-  cd $TOOLS_DIR
-  go install github.com/tomnomnom/gf@latest
-  sudo cp $GOPATH/bin/gf /usr/local/bin/
-  echo -e "${GREEN}gf quraşdırıldı.${NC}"
-  
-  echo -e "${RED}gf pattern-ləri yüklənir...${NC}"
-  mkdir -p $HOME/.gf
-  git clone https://github.com/NitinYadav00/gf-patterns.git $HOME/.gf/Gf-Patterns
-  cp $HOME/.gf/Gf-Patterns/*.json $HOME/.gf/
-  echo -e "${GREEN}gf pattern-lər uğurla quraşdırıldı.${NC}"
+  if command -v gf > /dev/null; then
+    echo -e "${GREEN}gf artıq yüklüdür.${NC}"
+  else
+    echo -e "${RED}gf yüklənir...${NC}"
+    cd $TOOLS_DIR
+    go install github.com/tomnomnom/gf@latest
+    sudo cp $GOPATH/bin/gf /usr/local/bin/
+    echo -e "${GREEN}gf quraşdırıldı.${NC}"
+
+    echo -e "${RED}gf pattern-ləri yüklənir...${NC}"
+    mkdir -p $HOME/.gf
+    git clone https://github.com/NitinYadav00/gf-patterns.git $HOME/.gf/Gf-Patterns
+    cp $HOME/.gf/Gf-Patterns/*.json $HOME/.gf/
+    echo -e "${GREEN}gf pattern-lər uğurla quraşdırıldı.${NC}"
+  fi
 }
 
 install_sqlmap() {
-  echo -e "${RED}SQLMap yüklənir...${NC}"
-  sudo snap install sqlmap
-  echo -e "${GREEN}SQLMap uğurla quraşdırıldı.${NC}"
+  if command -v sqlmap > /dev/null; then
+    echo -e "${GREEN}SQLMap artıq yüklüdür.${NC}"
+  else
+    echo -e "${RED}SQLMap yüklənir...${NC}"
+    sudo snap install sqlmap
+    echo -e "${GREEN}SQLMap uğurla quraşdırıldı.${NC}"
+  fi
 }
 
 install_dalfox() {
-  echo -e "${RED}Dalfox yüklənir...${NC}"
-  go install github.com/hahwul/dalfox/v2@latest
-  sudo cp $GOPATH/bin/dalfox /usr/local/bin/
-  echo -e "${GREEN}Dalfox quraşdırıldı.${NC}"
+  if command -v dalfox > /dev/null; then
+    echo -e "${GREEN}Dalfox artıq yüklüdür.${NC}"
+  else
+    echo -e "${RED}Dalfox yüklənir...${NC}"
+    go install github.com/hahwul/dalfox/v2@latest
+    sudo cp $GOPATH/bin/dalfox /usr/local/bin/
+    echo -e "${GREEN}Dalfox quraşdırıldı.${NC}"
+  fi
 }
 
 install_gobuster() {
-  echo -e "${RED}Gobuster yüklənir...${NC}"
-  go install github.com/OJ/gobuster/v3@latest
-  sudo cp $GOPATH/bin/gobuster /usr/local/bin/
-  echo -e "${GREEN}Gobuster quraşdırıldı.${NC}"
+  if command -v gobuster > /dev/null; then
+    echo -e "${GREEN}Gobuster artıq yüklüdür.${NC}"
+  else
+    echo -e "${RED}Gobuster yüklənir...${NC}"
+    go install github.com/OJ/gobuster/v3@latest
+    sudo cp $GOPATH/bin/gobuster /usr/local/bin/
+    echo -e "${GREEN}Gobuster quraşdırıldı.${NC}"
+  fi
 }
 
 install_hydra() {
-  echo -e "${RED}Hydra yüklənir...${NC}"
-  sudo apt-get install hydra
-  echo -e "${GREEN}Hydra quraşdırıldı.${NC}"
+  if command -v hydra > /dev/null; then
+    echo -e "${GREEN}Hydra artıq yüklüdür.${NC}"
+  else
+    echo -e "${RED}Hydra yüklənir...${NC}"
+    sudo apt-get install hydra -y
+    echo -e "${GREEN}Hydra quraşdırıldı.${NC}"
+  fi
 }
 
 install_hashcat() {
-  echo -e "${RED}Hashcat yüklənir...${NC}"
-  sudo apt-get install hashcat
-  echo -e "${GREEN}Hashcat quraşdırıldı.${NC}"
+  if command -v hashcat > /dev/null; then
+    echo -e "${GREEN}Hashcat artıq yüklüdür.${NC}"
+  else
+    echo -e "${RED}Hashcat yüklənir...${NC}"
+    sudo apt-get install hashcat -y
+    echo -e "${GREEN}Hashcat quraşdırıldı.${NC}"
+  fi
 }
 
 install_wpscan() {
-  echo -e "${RED}WPScan yüklənir...${NC}"
-  sudo apt-get install ruby ruby-dev
-  sudo gem install wpscan
-  echo -e "${GREEN}WPScan quraşdırıldı.${NC}"
+  if command -v wpscan > /dev/null; then
+    echo -e "${GREEN}WPScan artıq yüklüdür.${NC}"
+  else
+    echo -e "${RED}WPScan yüklənir...${NC}"
+    sudo apt-get install ruby ruby-dev -y
+    sudo gem install wpscan -y
+    echo -e "${GREEN}WPScan quraşdırıldı.${NC}"
+  fi
 }
 
 install_amass() {
-  echo -e "${RED}Amass yüklənir...${NC}"
-  sudo snap install amass --classic
-  echo -e "${GREEN}Amass quraşdırıldı.${NC}"
-}
-
-install_zaproxy() {
-  echo -e "${RED}ZAP yüklənir...${NC}"
-  sudo snap install zaproxy --classic
-  echo -e "${GREEN}ZAP quraşdırıldı.${NC}"
+  if command -v amass > /dev/null; then
+    echo -e "${GREEN}Amass artıq yüklüdür.${NC}"
+  else
+    echo -e "${RED}Amass yüklənir...${NC}"
+    go install github.com/OWASP/Amass/v3/...@latest
+    sudo cp $GOPATH/bin/amass /usr/local/bin/
+    echo -e "${GREEN}Amass quraşdırıldı.${NC}"
+  fi
 }
 
 install_nmap() {
-  echo -e "${RED}Nmap yüklənir...${NC}"
-  sudo apt-get install nmap
-  echo -e "${GREEN}Nmap quraşdırıldı.${NC}"
+  if command -v nmap > /dev/null; then
+    echo -e "${GREEN}Nmap artıq yüklüdür.${NC}"
+  else
+    echo -e "${RED}Nmap yüklənir...${NC}"
+    sudo apt-get install nmap -y
+    echo -e "${GREEN}Nmap quraşdırıldı.${NC}"
+  fi
 }
 
 install_loxs() {
-  echo -e "${RED}Loxs yüklənir...${NC}"
-  cd $TOOLS_DIR
-  git clone https://github.com/coffinxp/loxs.git
-  echo -e "${GREEN}Loxs quraşdırıldı.${NC}"
+  if command -v loxs > /dev/null; then
+    echo -e "${GREEN}Loxs artıq yüklüdür.${NC}"
+  else
+    echo -e "${RED}Loxs yüklənir...${NC}"
+    cd $TOOLS_DIR
+    git clone https://github.com/coffinxp/loxs.git
+    cd loxs
+    echo -e "${GREEN}Loxs yükləndi. Quraşdırma tamamlanır...${NC}"
+    pip3 install -r requirements.txt
+    echo -e "${GREEN}Loxs quraşdırıldı.${NC}"
+  fi
 }
 
 # Seçim əsasında müvafiq alət yüklənir
@@ -225,10 +296,36 @@ case $tool_choice in
     install_amass
     ;;
   15)
-    install_zaproxy
-    ;;
-  16)
     install_nmap
     ;;
-  17)
+  16)
     install_loxs
+    ;;
+  17)
+    install_zaproxy
+    ;;
+  18)
+    install_katana
+    install_nuclei
+    install_subfinder
+    install_gau
+    install_urldedupe
+    install_waybackurls
+    install_gf
+    install_sqlmap
+    install_dalfox
+    install_gobuster
+    install_hydra
+    install_hashcat
+    install_wpscan
+    install_amass
+    install_nmap
+    install_loxs
+    install_zaproxy
+    ;;
+  *)
+    echo -e "${RED}Yanlış seçim.${NC}"
+    ;;
+esac
+
+echo -e "${GREEN}Skript tamamlandı!${NC}"
