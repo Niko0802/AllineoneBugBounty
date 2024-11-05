@@ -24,8 +24,6 @@ Aşağıda təqdim olunan alətlərin hər biri haqqında bir cümləlik izahlar
 
 ✔️gau: URL-lərin tapılması və istənilən veb saytdan məlumatların çıxarılması üçün istifadə olunan bir alətdir.
 
-✔️urldedupe: URL-lərin duplikasiyasını aradan qaldırmaq və təkiləşdirmək üçün nəzərdə tutulmuş bir alətdir.
-
 ✔️waybackurls: Veb saytın arxiv versiyalarını tapmaq və geri döndürmək üçün istifadə olunan bir alətdir.
 
 ✔️gf: Farqli "pattern" (nümunə) axtarışlarını asanlaşdıran bir alətdir, təhlükəsizlik tədqiqatçıları üçün faydalıdır.
@@ -35,8 +33,6 @@ Aşağıda təqdim olunan alətlərin hər biri haqqında bir cümləlik izahlar
 ✔️Dalfox: XSS (Cross-Site Scripting) zəifliklərini aşkar etmək üçün istifadə olunan bir alətdir, dinamik testlər üçün optimallaşdırılmışdır.
 
 ✔️Gobuster: Veb serverdə gizli qovluqları və faylları tapmaq üçün sürətli bir alətdir.
-
-✔️WPScan: WordPress veb saytlarının təhlükəsizliyini yoxlamaq və zəiflikləri aşkar etmək üçün xüsusi hazırlanmış bir skanerdir.
 
 ✔️Amass: Hədəf üzərindəki DNS məlumatlarını və əlaqələri toplamaq üçün istifadə olunan genişlənə bilən bir alətdir.
 
