@@ -35,7 +35,8 @@ echo "11. Hydra"
 echo "12. Hashcat"
 echo "13. WPScan"
 echo "14. Amass"
-echo "15. Hamısı (Bütün alətlər)"
+echo "15. ZAP (OWASP ZAP Proxy)"
+echo "16. Hamısı (Bütün alətlər)"
 
 read -p "Endirmək istədiyiniz alətin nömrəsini daxil edin: " tool_choice
 
@@ -109,11 +110,13 @@ install_gf() {
 }
 
 install_sqlmap() {
-  echo "SQLMap yüklənir..."
-  cd $TOOLS_DIR
-  git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git
-  sudo ln -s $TOOLS_DIR/sqlmap/sqlmap.py /usr/local/bin/sqlmap
-  echo "SQLMap quraşdırıldı."
+  echo "Snap vasitəsilə SQLMap yüklənir..."
+  sudo snap install sqlmap
+  if [ $? -ne 0 ]; then
+    echo "SQLMap yüklənmədi, --classic rejimində yüklənir..."
+    sudo snap install sqlmap --classic
+  fi
+  echo "SQLMap uğurla quraşdırıldı."
 }
 
 install_dalfox() {
@@ -155,6 +158,16 @@ install_amass() {
   echo "Amass yüklənir..."
   sudo apt-get install -y amass
   echo "Amass quraşdırıldı."
+}
+
+install_zaproxy() {
+  echo "Snap vasitəsilə ZAP yüklənir..."
+  sudo snap install zaproxy
+  if [ $? -ne 0 ]; then
+    echo "ZAP yüklənmədi, --classic rejimində yüklənir..."
+    sudo snap install zaproxy --classic
+  fi
+  echo "ZAP uğurla quraşdırıldı."
 }
 
 # Seçim əsasında müvafiq alət yüklənir
@@ -202,6 +215,9 @@ case $tool_choice in
     install_amass
     ;;
   15)
+    install_zaproxy
+    ;;
+  16)
     echo "Bütün alətlər yüklənir..."
     install_katana
     install_nuclei
@@ -217,6 +233,7 @@ case $tool_choice in
     install_hashcat
     install_wpscan
     install_amass
+    install_zaproxy
     echo "Bütün alətlər uğurla quraşdırıldı."
     ;;
   *)
