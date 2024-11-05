@@ -29,7 +29,7 @@ export PATH=$PATH:$GOPATH/bin
 
 # Alətlərin siyahısını göstərin
 declare -A tools
-tools=( ["1"]="katana" ["2"]="nuclei" ["3"]="subfinder" ["4"]="gau" ["5"]="urldedupe" ["6"]="waybackurls" ["7"]="gf" ["8"]="sqlmap" ["9"]="dalfox" ["10"]="gobuster" ["11"]="wpscan" ["12"]="amass" ["13"]="nmap" ["14"]="zaproxy" ["15"]="hamısı" )
+tools=( ["1"]="katana" ["2"]="nuclei" ["3"]="subfinder" ["4"]="gau" ["5"]="urldedupe" ["6"]="waybackurls" ["7"]="gf" ["8"]="sqlmap" ["9"]="dalfox" ["10"]="gobuster" ["11"]="wpscan" ["12"]="amass" ["13"]="nmap" ["14"]="zaproxy" ["15"]="Hamısı" )
 
 echo -e "${RED}Yüklənəcək alətlər siyahısı:${NC}"
 for key in "${!tools[@]}"; do
