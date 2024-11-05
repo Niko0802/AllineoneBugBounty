@@ -28,7 +28,14 @@ echo "4. gau"
 echo "5. urldedupe"
 echo "6. waybackurls"
 echo "7. gf"
-echo "8. Hamısı (Bütün alətlər)"
+echo "8. SQLMap"
+echo "9. Dalfox"
+echo "10. Dirsearch"
+echo "11. Hydra"
+echo "12. Hashcat"
+echo "13. WPScan"
+echo "14. Amass"
+echo "15. Hamısı (Bütün alətlər)"
 
 read -p "Endirmək istədiyiniz alətin nömrəsini daxil edin: " tool_choice
 
@@ -101,6 +108,55 @@ install_gf() {
   echo "gf pattern-lər uğurla quraşdırıldı."
 }
 
+install_sqlmap() {
+  echo "SQLMap yüklənir..."
+  cd $TOOLS_DIR
+  git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git
+  sudo ln -s $TOOLS_DIR/sqlmap/sqlmap.py /usr/local/bin/sqlmap
+  echo "SQLMap quraşdırıldı."
+}
+
+install_dalfox() {
+  echo "Dalfox yüklənir..."
+  cd $TOOLS_DIR
+  go install github.com/hahwul/dalfox/v2@latest
+  sudo cp $GOPATH/bin/dalfox /usr/local/bin/
+  echo "Dalfox quraşdırıldı."
+}
+
+install_dirsearch() {
+  echo "Dirsearch yüklənir..."
+  cd $TOOLS_DIR
+  git clone https://github.com/maurosoria/dirsearch.git
+  sudo ln -s $TOOLS_DIR/dirsearch/dirsearch.py /usr/local/bin/dirsearch
+  echo "Dirsearch quraşdırıldı."
+}
+
+install_hydra() {
+  echo "Hydra yüklənir..."
+  sudo apt-get install -y hydra
+  echo "Hydra quraşdırıldı."
+}
+
+install_hashcat() {
+  echo "Hashcat yüklənir..."
+  sudo apt-get install -y hashcat
+  echo "Hashcat quraşdırıldı."
+}
+
+install_wpscan() {
+  echo "WPScan yüklənir..."
+  sudo apt-get install -y ruby ruby-dev
+  sudo gem install wpscan
+  echo "WPScan quraşdırıldı."
+}
+
+install_amass() {
+  echo "Amass yüklənir..."
+  sudo apt-get install -y amass
+  echo "Amass quraşdırıldı."
+}
+
 # Seçim əsasında müvafiq alət yüklənir
 case $tool_choice in
   1)
@@ -125,6 +181,27 @@ case $tool_choice in
     install_gf
     ;;
   8)
+    install_sqlmap
+    ;;
+  9)
+    install_dalfox
+    ;;
+  10)
+    install_dirsearch
+    ;;
+  11)
+    install_hydra
+    ;;
+  12)
+    install_hashcat
+    ;;
+  13)
+    install_wpscan
+    ;;
+  14)
+    install_amass
+    ;;
+  15)
     echo "Bütün alətlər yüklənir..."
     install_katana
     install_nuclei
@@ -133,6 +210,13 @@ case $tool_choice in
     install_urldedupe
     install_waybackurls
     install_gf
+    install_sqlmap
+    install_dalfox
+    install_dirsearch
+    install_hydra
+    install_hashcat
+    install_wpscan
+    install_amass
     echo "Bütün alətlər uğurla quraşdırıldı."
     ;;
   *)
