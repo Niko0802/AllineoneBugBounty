@@ -16,11 +16,11 @@ Aşağıda təqdim olunan alətlərin hər biri haqqında bir cümləlik izahlar
 
 ✔️Nmap: Şəbəkələrdəki cihazları, açıq portları və xidmətləri kəşf etmək üçün istifadə olunan güclü bir skanerdir.
 
-✔️Katana: Veb tətbiqlərinin təhlükəsizliyini test etmək üçün istifadə olunan inteqrasiya olunmuş bir alət və planlaşdırma platformasıdır.
+✔️Katana: Veb tətbiqlərinin təhlükəsizliyini test etmək üçün istifadə olunan  xəritələsdirən alətdir.
 
-✔️Nuclei: Veb tətbiq zəifliklərini aşkar etmək üçün hazır şablonlardan(templates) istifadə edən sürətli və genişlənə bilən bir skanerdir.
+✔️Nuclei: Veb tətbiq zəifliklərini aşkar etmək üçün hazır şablonlardan(templates) istifadə edən sürətli bir skanerdir.
 
-✔️Subfinder: DNS subdomenlərini aşkar etmək üçün istifadə olunan bir alətdir, bu, hədəf veb saytının zəifliklərini daha yaxşı başa düşməyə kömək edir.
+✔️Subfinder: Subdomenləri aşkar etmək üçün istifadə olunan bir alətdir.
 
 ✔️gau: URL-lərin tapılması və istənilən veb saytdan məlumatların çıxarılması üçün istifadə olunan bir alətdir.
 
@@ -28,9 +28,9 @@ Aşağıda təqdim olunan alətlərin hər biri haqqında bir cümləlik izahlar
 
 ✔️waybackurls: Veb saytın arxiv versiyalarını tapmaq və geri döndürmək üçün istifadə olunan bir alətdir.
 
-✔️gf: Farklı "pattern" (nümunə) axtarışlarını asanlaşdıran bir alətdir, təhlükəsizlik tədqiqatçıları üçün faydalıdır.
+✔️gf: Farqli "pattern" (nümunə) axtarışlarını asanlaşdıran bir alətdir, təhlükəsizlik tədqiqatçıları üçün faydalıdır.
 
-✔️SQLMap: SQL inyeksiya zəifliklərini aşkar etmək və istismar etmək üçün avtomatlaşdırılmış bir alətdir.
+✔️SQLMap: SQL injeksiya zəifliklərini aşkar etmək və istismar etmək üçün avtomatlaşdırılmış bir alətdir.
 
 ✔️Dalfox: XSS (Cross-Site Scripting) zəifliklərini aşkar etmək üçün istifadə olunan bir alətdir, dinamik testlər üçün optimallaşdırılmışdır.
 
