@@ -32,11 +32,7 @@ Aşağıda təqdim olunan alətlərin hər biri haqqında bir cümləlik izahlar
 
 ⚔️Dalfox: XSS (Cross-Site Scripting) zəifliklərini aşkar etmək üçün istifadə olunan bir alətdir, dinamik testlər üçün optimallaşdırılmışdır.
 
-⚔️Dirsearch: Veb serverdə gizli qovluqları və faylları tapmaq üçün sürətli bir alətdir.
-
-🐍Hydra: Parol sındırma üçün istifadə olunan çoxprosessli bir alətdir, fərqli protokollarda hesabların şifrələrini sındırmağa imkan tanıyır.
-
-⚔️Hashcat: Parol hash-larını sındırmaq üçün dünyada ən sürətli və güclü alətlərdən biridir, müxtəlif hashing alqoritmləri ilə işləyə bilir.
+⚔️Gobuster: Veb serverdə gizli qovluqları və faylları tapmaq üçün sürətli bir alətdir.
 
 ⚔️WPScan: WordPress veb saytlarının təhlükəsizliyini yoxlamaq və zəiflikləri aşkar etmək üçün xüsusi hazırlanmış bir skanerdir.
 
