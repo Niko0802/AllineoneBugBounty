@@ -11,13 +11,18 @@ mkdir -p $TOOLS_DIR
 
 # Sistem paketlərini güncəlləyin
 echo -e "${RED}Sistem paketləri güncəllənir...${NC}"
-sudo apt-get update && sudo apt-get upgrade -y
+if ! sudo apt-get update && sudo apt-get upgrade -y; then
+  echo -e "${RED}Sistem paketləri güncəllənərkən səhv baş verdi.${NC}"
+  exit 1
+fi
 
 # Go yüklənməyibsə, Go yükləyin
 if ! [ -x "$(command -v go)" ]; then
   echo -e "${RED}Go yüklənməmişdir. Yüklənir...${NC}"
-  sudo apt-get install snapd -y # snap yoxdursa, snap quraşdırılır
-  sudo snap install go || sudo apt install golang-go -y
+  if ! sudo apt-get install snapd -y || ! sudo snap install go; then
+    echo -e "${RED}Go yüklənmədi. Xahiş edirik, problemi həll edin.${NC}"
+    exit 1
+  fi
   echo -e "${GREEN}Go uğurla yükləndi.${NC}"
 else
   echo -e "${GREEN}Go artıq mövcuddur.${NC}"
@@ -38,6 +43,10 @@ done
 
 # İstifadəçidən alət seçimi alınır
 read -p "Endirmək istədiyiniz alətin nömrəsini daxil edin (1-15): " tool_choice
+if ! [[ "$tool_choice" =~ ^[1-9]$|^1[0-5]$ ]]; then
+  echo -e "${RED}Yanlış seçim. Xahiş edirik, 1-15 arasında bir nömrə daxil edin.${NC}"
+  exit 1
+fi
 
 # Alətlərin yüklənməsi
 install_tool() {
@@ -53,9 +62,6 @@ install_tool() {
       nuclei)
         go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
         sudo cp $GOPATH/bin/nuclei /usr/local/bin/
-        echo -e "${GREEN}Nuclei uğurla quraşdırıldı.${NC}"
-        nuclei
-        sudo nuclei -up
         ;;
       subfinder)
         go install github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
@@ -102,6 +108,13 @@ install_tool() {
         return
         ;;
     esac
+
+    # Alətin yüklənib-yüklənmədiyini yoxlayın
+    if ! command -v $tool_name > /dev/null; then
+      echo -e "${RED}$tool_name yüklənmədi. Xahiş edirik, problemi həll edin.${NC}"
+      exit 1
+    fi
+
     sudo cp $GOPATH/bin/$tool_name /usr/local/bin/
     echo -e "${GREEN}$tool_name uğurla quraşdırıldı.${NC}"
   fi
