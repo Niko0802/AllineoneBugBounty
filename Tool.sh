@@ -1,7 +1,8 @@
 #!/bin/bash
 
+
 sudo bash -c "
-apt-get update -y && apt-get upgrade -y 
+apt-get update -y
 apt-get install hydra -y
 snap install metasploit-framework
 apt-get install nmap -y
@@ -21,3 +22,14 @@ apt install hashid -y
 apt install sqlmap -y
 snap install amass
 "
+
+
+if [ "$(id -u)" -eq 0 ]; then
+    # Eğer root kullanıcısıysak, /root/go/bin dizininden kopyala
+    sudo cp /root/go/bin/* /usr/local/bin/
+    echo "Root kullanıcısı. Dosyalar /root/go/bin dizininden /usr/local/bin dizinine kopyalandı."
+else
+    # Eğer normal kullanıcıysak, $HOME/go/bin dizininden kopyala
+    sudo cp $HOME/go/bin/* /usr/local/bin/
+    echo "Normal kullanıcı. Dosyalar $HOME/go/bin dizininden /usr/local/bin dizinine kopyalandı."
+fi
