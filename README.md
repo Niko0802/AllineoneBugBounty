@@ -28,19 +28,19 @@ Aşağıda təqdim olunan alətlərin hər biri haqqında bir cümləlik izahlar
 
 ✔️ZAP (OWASP ZAP Proxy): Veb tətbiqlərinin təhlükəsizliyini test etmək üçün açıq mənbəli bir proxy və skanerdir, istifadəçi dostu interfeysə malikdir.
 
-virtualbox-qt: VirtualBox, virtual maşınlar işlətmək üçün istifadə olunan bir proqramdır.
+✔️Zvirtualbox-qt: VirtualBox, virtual maşınlar işlətmək üçün istifadə olunan bir proqramdır.
 
-hashid: Hash növlərini müəyyən etmək üçün istifadə olunan bir alətdir.
+✔️Zhashid: Hash növlərini müəyyən etmək üçün istifadə olunan bir alətdir.
 
-sqlmap: SQL injection zəifliklərini test etmək üçün istifadə olunan bir alətdir.
+✔️Zsqlmap: SQL injection zəifliklərini test etmək üçün istifadə olunan bir alətdir.
 
-amass: Amass, subdomain tapma və məlumat toplama üçün güclü bir alətdir
+✔️Zamass: Amass, subdomain tapma və məlumat toplama üçün güclü bir alətdir
 
-gf: GF, müxtəlif növ təhlükəsizlik testlərini sürətlə həyata keçirmək üçün istifadə olunan bir alətdir.
+✔️Zgf: GF, müxtəlif növ təhlükəsizlik testlərini sürətlə həyata keçirmək üçün istifadə olunan bir alətdir.
 
-waybackurls: Wayback Machine (internet arxivləri) verilənlər bazasından URL-ləri toplamaq üçün istifadə olunan bir alətdir.
+✔️Zwaybackurls: Wayback Machine (internet arxivləri) verilənlər bazasından URL-ləri toplamaq üçün istifadə olunan bir alətdir.
 
-gauplus: Veb səhifələrindən URL-ləri toplamaq üçün istifadə olunan bir alətdir.
+✔️Zgauplus: Veb səhifələrindən URL-ləri toplamaq üçün istifadə olunan bir alətdir.
 
-gau: Təhlükəsizlik tədqiqatçıları tərəfindən istifadə edilən bir alətdir. Veb səhifələrinin keçmişi və mövcud URL-ləri üzərində analizlər aparmağa kömək edir.
+✔️Zgau: Təhlükəsizlik tədqiqatçıları tərəfindən istifadə edilən bir alətdir. Veb səhifələrinin keçmişi və mövcud URL-ləri üzərində analizlər aparmağa kömək edir.
 
