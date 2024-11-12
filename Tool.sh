@@ -21,6 +21,11 @@ apt install virtualbox-qt -y
 apt install hashid -y
 apt install sqlmap -y
 snap install amass
+go install github.com/tomnomnom/gf@latest
+go install github.com/tomnomnom/waybackurls@latest
+go install github.com/bp0lr/gauplus@latest
+go install github.com/lc/gau/v2/cmd/gau@latest
+git clone https://github.com/NitinYadav00/gf-patterns.git
 "
 
 
