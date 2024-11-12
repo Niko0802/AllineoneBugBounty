@@ -30,7 +30,7 @@ Aşağıda təqdim olunan alətlərin hər biri haqqında bir cümləlik izahlar
 
 ✔️virtualbox-qt: VirtualBox, virtual maşınlar işlətmək üçün istifadə olunan bir proqramdır.
 
-✔hashid: Hash növlərini müəyyən etmək üçün istifadə olunan bir alətdir.
+✔️hashid: Hash növlərini müəyyən etmək üçün istifadə olunan bir alətdir.
 
 ✔️sqlmap: SQL injection zəifliklərini test etmək üçün istifadə olunan bir alətdir.
 
