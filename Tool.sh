@@ -1,6 +1,22 @@
 #!/bin/bash
 
+# Go proqramlaşdırma dilini yoxlamaq və quraşdırmaq
+if ! command -v go &> /dev/null; then
+    echo "Go proqramlaşdırma dili sistemdə tapılmadı. Quraşdırılır..."
+    sudo apt-get install -y golang-go
+else
+    echo "Go proqramlaşdırma dili sistemdə mövcuddur."
+fi
 
+# Snap paket menecerini yoxlamaq və quraşdırmaq
+if ! command -v snap &> /dev/null; then
+    echo "Snap paket meneceri sistemdə tapılmadı. Quraşdırılır..."
+    sudo apt-get install -y snapd
+else
+    echo "Snap paket meneceri sistemdə mövcuddur."
+fi
+
+# Alətlərin quraşdırılması
 sudo bash -c "
 apt-get update -y
 apt-get install hydra -y
@@ -26,16 +42,16 @@ go install github.com/tomnomnom/waybackurls@latest
 go install github.com/bp0lr/gauplus@latest
 go install github.com/lc/gau/v2/cmd/gau@latest
 git clone https://github.com/NitinYadav00/gf-patterns.git
-sudo apt install nikto
+sudo apt install nikto -y
 "
 
-
+# Dosyaların /usr/local/bin/ dizinine kopyalanması
 if [ "$(id -u)" -eq 0 ]; then
-    # Eğer root kullanıcısıysak, /root/go/bin dizininden kopyala
+    # Root istifadəçisiysə, /root/go/bin dizinindən kopyalayırıq
     sudo cp /root/go/bin/* /usr/local/bin/
-    echo "Root kullanıcısı. Dosyalar /root/go/bin dizininden /usr/local/bin dizinine kopyalandı."
+    echo "Root istifadəçisi. Fayllar /root/go/bin dizinindən /usr/local/bin dizinine kopyalandı."
 else
-    # Eğer normal kullanıcıysak, $HOME/go/bin dizininden kopyala
+    # Normal istifadəçiysə, $HOME/go/bin dizinindən kopyalayırıq
     sudo cp $HOME/go/bin/* /usr/local/bin/
-    echo "Normal kullanıcı. Dosyalar $HOME/go/bin dizininden /usr/local/bin dizinine kopyalandı."
+    echo "Normal istifadəçi. Fayllar $HOME/go/bin dizinindən /usr/local/bin dizinine kopyalandı."
 fi
