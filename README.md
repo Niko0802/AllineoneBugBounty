@@ -1,16 +1,6 @@
 Bu bash skript, müxtəlif Bug Bounty toollari-ni avtomatik yüklənməsi və quraşdırılması üçün nəzərdə tutulmuşdur.
-
-   Toolu Endirmek ucun addimlar:
-
-   1.git clone https://github.com/Niko0802/AllineoneBugBounty.git
-
-   2. cd AllineoneBugBounty
-
-   3. sudo chmod +x Bugbountytools.sh
-
-   4. ./Bugbountytools.sh və ya sudo bash BugBountytools.sh
    
-Hər alət yüklənərkən və quraşdırılarkən məlumat verilir, və /usr/local/bin/ direktoriyasına yerləşdirilir ki, istifadəçi onları rahatlıqla işlədə bilsin.
+Hər alət yüklənərkən və quraşdırılarkən məlumat verilir, və /usr/local/bin/ qovluğuna yerləşdirilir ki, istifadəçi onları rahatlıqla işlədə bilsin.
 
 Aşağıda təqdim olunan alətlərin hər biri haqqında bir cümləlik izahlar:
 
