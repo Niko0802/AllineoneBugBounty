@@ -28,33 +28,33 @@ Aşağıda təqdim olunan alətlərin hər biri haqqında bir cümləlik izahlar
 
 ✔️ZAP (OWASP ZAP Proxy): Veb tətbiqlərinin təhlükəsizliyini test etmək üçün açıq mənbəli bir proxy və skanerdir, istifadəçi dostu interfeysə malikdir.
 
-✔️Zvirtualbox-qt: VirtualBox, virtual maşınlar işlətmək üçün istifadə olunan bir proqramdır.
+✔️virtualbox-qt: VirtualBox, virtual maşınlar işlətmək üçün istifadə olunan bir proqramdır.
 
-✔️Zhashid: Hash növlərini müəyyən etmək üçün istifadə olunan bir alətdir.
+✔hashid: Hash növlərini müəyyən etmək üçün istifadə olunan bir alətdir.
 
-✔️Zsqlmap: SQL injection zəifliklərini test etmək üçün istifadə olunan bir alətdir.
+✔️sqlmap: SQL injection zəifliklərini test etmək üçün istifadə olunan bir alətdir.
 
-✔️Zamass: Amass, subdomain tapma və məlumat toplama üçün güclü bir alətdir
+✔️amass: Amass, subdomain tapmaq və məlumat toplama üçün güclü bir alətdir
 
-✔️Zgf: GF, müxtəlif növ təhlükəsizlik testlərini sürətlə həyata keçirmək üçün istifadə olunan bir alətdir.
+✔️gf: GF, müxtəlif növ təhlükəsizlik testlərini sürətlə həyata keçirmək üçün istifadə olunan bir alətdir.
 
-✔️Zwaybackurls: Wayback Machine (internet arxivləri) verilənlər bazasından URL-ləri toplamaq üçün istifadə olunan bir alətdir.
+✔️waybackurls: Wayback Machine (internet arxivləri) verilənlər bazasından URL-ləri toplamaq üçün istifadə olunan bir alətdir.
 
-✔️Zgauplus: Veb səhifələrindən URL-ləri toplamaq üçün istifadə olunan bir alətdir.
+✔️gauplus: Veb səhifələrindən URL-ləri toplamaq üçün istifadə olunan bir alətdir.
 
-✔️Zgau: Təhlükəsizlik tədqiqatçıları tərəfindən istifadə edilən bir alətdir. Veb səhifələrinin keçmişi və mövcud URL-ləri üzərində analizlər aparmağa kömək edir.
+✔️gau: Veb səhifələrinin keçmişi və mövcud URL-ləri üzərində analizlər aparmağa kömək edir.
 
-✔️Hydra, brute-force şifrə sındırma alətidir. Şifrə təhlili etmək üçün müxtəlif protokollarla (FTP, HTTP, SSH, və s.) istifadə olunur.
+✔️Hydra Brute-force şifrə sındırma alətidir. 
 
-✔️Metasploit, penetrasiya testləri üçün geniş istifadə edilən və zəifliklərin istismarı üçün istifadə olunan ən məşhur alətlərdən biridir.
+✔️Metasploit Çoxfunksiyalı Framework olub, zəifliklərin istismarı üçün istifadə olunan ən məşhur alətlərdən biridir.
 
-✔️Snort, şəbəkə hücumlarını aşkarlayan və önləyən IDS/IPS (Şəbəkə Aşkarlama və Həddindən Artıq Hücumların Qarşısını Almaq Sistemi) alətidir.
+✔️Snort, şəbəkə hücumlarını aşkarlayan və önləyən IDS/IPS (Şəbəkə Aşkarlama və  Hücumların Qarşısını Almaq Sistemi) alətidir.
 
-✔️Hashcat şifrə sındırma (cracking) və şifrələrin hash növlərini açmaq üçün istifadə olunan güclü və çox yönlü bir alətdir.
+✔️Hashcat şifrə sındırma (cracking) və şifrələrin hashləri açmaq üçün istifadə olunan güclü və çox yönlü bir alətdir.
 
-✔️Nikto, veb serverlərdə təhlükəsizlik boşluqlarını aşkar etmək üçün istifadə edilən genişlənə bilən bir alətdir. 
+✔️Nikto, veb serverlərdə təhlükəsizlik boşluqlarını aşkar etmək üçün istifadə edilən alətdir. 
 
-✔️Gobuster URL qovluqlarını tapmaq və gizli qovluqları aşkar etmək üçün istifadə olunur. Bu alət, şəbəkə və veb tətbiq testlərində faydalıdır.
+✔️Gobuster URL qovluqlarını tapmaq və gizli qovluqları aşkar etmək üçün istifadə olunur. 
 
 
 
