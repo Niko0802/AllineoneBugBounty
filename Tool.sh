@@ -45,13 +45,13 @@ git clone https://github.com/NitinYadav00/gf-patterns.git
 sudo apt install nikto -y
 "
 
-# Dosyaların /usr/local/bin/ dizinine kopyalanması
+# Toolların /usr/local/bin/ qovluğuna kopyalanması 
 if [ "$(id -u)" -eq 0 ]; then
-    # Root istifadəçisiysə, /root/go/bin dizinindən kopyalayırıq
+    # Root istifadəçisiysə, /root/go/bin qovluğuna kopyalayırıq
     sudo cp /root/go/bin/* /usr/local/bin/
     echo "Root istifadəçisi. Fayllar /root/go/bin dizinindən /usr/local/bin dizinine kopyalandı."
 else
-    # Normal istifadəçiysə, $HOME/go/bin dizinindən kopyalayırıq
+    # Normal istifadəçiysə, $HOME/go/bin qovluğuna kopyalayırıq
     sudo cp $HOME/go/bin/* /usr/local/bin/
     echo "Normal istifadəçi. Fayllar $HOME/go/bin dizinindən /usr/local/bin dizinine kopyalandı."
 fi
