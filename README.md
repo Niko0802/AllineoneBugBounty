@@ -44,3 +44,17 @@ Aşağıda təqdim olunan alətlərin hər biri haqqında bir cümləlik izahlar
 
 ✔️Zgau: Təhlükəsizlik tədqiqatçıları tərəfindən istifadə edilən bir alətdir. Veb səhifələrinin keçmişi və mövcud URL-ləri üzərində analizlər aparmağa kömək edir.
 
+✔️Hydra, brute-force şifrə sındırma alətidir. Şifrə təhlili etmək üçün müxtəlif protokollarla (FTP, HTTP, SSH, və s.) istifadə olunur.
+
+✔️Metasploit, penetrasiya testləri üçün geniş istifadə edilən və zəifliklərin istismarı üçün istifadə olunan ən məşhur alətlərdən biridir.
+
+✔️Snort, şəbəkə hücumlarını aşkarlayan və önləyən IDS/IPS (Şəbəkə Aşkarlama və Həddindən Artıq Hücumların Qarşısını Almaq Sistemi) alətidir.
+
+✔️Hashcat şifrə sındırma (cracking) və şifrələrin hash növlərini açmaq üçün istifadə olunan güclü və çox yönlü bir alətdir.
+
+✔️Nikto, veb serverlərdə təhlükəsizlik boşluqlarını aşkar etmək üçün istifadə edilən genişlənə bilən bir alətdir. 
+
+✔️Gobuster URL qovluqlarını tapmaq və gizli qovluqları aşkar etmək üçün istifadə olunur. Bu alət, şəbəkə və veb tətbiq testlərində faydalıdır.
+
+
+
