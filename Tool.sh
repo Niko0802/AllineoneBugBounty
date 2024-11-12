@@ -26,6 +26,7 @@ go install github.com/tomnomnom/waybackurls@latest
 go install github.com/bp0lr/gauplus@latest
 go install github.com/lc/gau/v2/cmd/gau@latest
 git clone https://github.com/NitinYadav00/gf-patterns.git
+sudo apt install nikto
 "
 
 
