@@ -2,6 +2,14 @@ Bu bash skript, müxtəlif Bug Bounty toollari-ni avtomatik yüklənməsi və qu
    
 Hər alət yüklənərkən və quraşdırılarkən məlumat verilir, və /usr/local/bin/ qovluğuna yerləşdirilir ki, istifadəçi onları rahatlıqla işlədə bilsin.
 
+Alətləri Endirmək üçün
+
+👽 git clone https://github.com/Niko0802/AllineoneBugBounty.git
+
+👽 cd AllineoneBugBounty
+
+👽 sudo bash Tool.sh
+
 Aşağıda təqdim olunan alətlərin hər biri haqqında bir cümləlik izahlar:
 
 ✔️Nmap: Şəbəkələrdəki cihazları, açıq portları və xidmətləri kəşf etmək üçün istifadə olunan güclü bir skanerdir.
