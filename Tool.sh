@@ -43,6 +43,9 @@ go install github.com/bp0lr/gauplus@latest
 go install github.com/lc/gau/v2/cmd/gau@latest
 git clone https://github.com/NitinYadav00/gf-patterns.git
 sudo apt install nikto -y
+sudo apt install steghide
+sudo apt install python3-pip
+sudo apt-get install stegcracker -y
 "
 
 # Toolların /usr/local/bin/ qovluğuna kopyalanması 
