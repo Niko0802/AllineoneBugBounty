@@ -46,6 +46,7 @@ sudo apt install nikto -y
 sudo apt install steghide
 sudo apt install python3-pip
 sudo apt-get install stegcracker -y
+sudo apt install wireshark
 "
 
 # Toolların /usr/local/bin/ qovluğuna kopyalanması 
