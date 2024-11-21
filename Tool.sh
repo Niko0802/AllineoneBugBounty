@@ -43,10 +43,12 @@ go install github.com/bp0lr/gauplus@latest
 go install github.com/lc/gau/v2/cmd/gau@latest
 git clone https://github.com/NitinYadav00/gf-patterns.git
 sudo apt install nikto -y
-sudo apt install steghide
-sudo apt install python3-pip
+sudo apt install steghide -y
+sudo apt install python3-pip -y
 sudo apt-get install stegcracker -y
-sudo apt install wireshark
+sudo apt install wireshark -y
+git clone https://github.com/YashGoti/crtsh.py.git && cd crtsh.py && mv crtsh.py crtsh && chmod +x crtsh && cp crtsh /usr/bin/
+git clone https://github.com/ameenmaali/urldedupe.git && cd urldedupe && cmake CMakeLists.txt && make
 "
 
 # Toolların /usr/local/bin/ qovluğuna kopyalanması 
